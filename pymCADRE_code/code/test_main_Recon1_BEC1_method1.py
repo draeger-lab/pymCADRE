@@ -11,20 +11,20 @@ from cobra.io.sbml import *
 
 
 # model
-model = io.read_sbml_model('../pre_processing/dataset/RECON1.xml')
+model = io.read_sbml_model('RECON1.xml')
 # genes
-G = pd.read_csv('../pre_processing/dataset/1_GPL570_GSE3397/1_GPL570_GSE3397_entrez_ids.csv')
+G = pd.read_csv('../test_dataset/1_GPL570_GSE3397_entrez_ids.csv')
 G = list(G['ENTREZ_GENE_ID'])
 # ubiquity scores
-U = pd.read_csv('../pre_processing/dataset/1_GPL570_GSE3397/1_GPL570_GSE3397_ubiquity.csv', header=None)
+U = pd.read_csv('../test_dataset/1_GPL570_GSE3397_ubiquity.csv', header=None)
 U = U.rename(columns={0: "Scores"})
 U = list(U['Scores'])
 # confidence scores
 # confidence_scores = pd.read_csv('../pre_processing/dataset/Recon1_confidence_scores.csv')
 # confidence_scores = np.float64(list(confidence_scores['Confidence Score']))
-confidence_scores = get_test_inputs('../testInputs.mat','../humanModel.mat')[3]
+confidence_scores = get_test_inputs('../test_dataset/testInputs.mat','../test_dataset/humanModel.mat')[3]
 # list with precursor metabolites
-precursorMets = '../pre_processing/dataset/key_metabolites_RECON1.txt'
+precursorMets = '../test_dataset/key_metabolites_RECON1.txt'
 
 ##############################################
 # Generate order for reaction removal
