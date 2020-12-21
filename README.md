@@ -52,12 +52,20 @@ and  Phosphoribosyl  pyrophosphate  (PRPP)  through  the salvage pathway, (0) no
 + `model_C`: core reactions in the original global model (including blocked reactions)
 + `pruneTime`: total reaction pruning time 
 + `cRes`: result of model checks (consistency/function) during pruning
-    + **-** (negative) vs. **+** (positive): reaction ***r*** removed from generic model or not
-    + **1** vs. **2**: reaction ***r*** had zero or non-zero expression evidence
-    + **-x.y**: removal of reaction ***r*** corresponded with removal of totally ***y*** core reactions
-    + **+x.1** vs. **+x.0**: production of key metabolites possible after removal of reaction ***r*** or not
-    + **3**: removal of reaction ***r***  hindered production of key metabolites, thus was not removed
-
+    + **1**: Reaction has zero expression evidence.
+    + **-1.x**: Reaction removed along with any inactivated reactions
+      (x: removed core reactions)
+    + **+1.x**: No reactions removed.
+      + x = 1: ratio of inactivated core vs. non-core reactions above a pre-defined threshold
+      + x = 0: production of precursor metabolites not possible 
+    + **2**: Reactions has expression evidence
+    + **-2.x**: Reaction removed along with only non-core inactivated reactions
+      (x: removed core reactions, always zero!)
+    + **+2.x**: No reactions removed.
+      + x= 1: removal led to inactive cores 
+      + x= 0: production of precursor metabolites not possible
+    + **3**: Removal or reaction prevented the production of required metabolites. No reaction removed.
+  
 
 ## Usage
 To run pymCADRE simply execute the notebook named main_pymcadre.ipynb or modify
