@@ -68,9 +68,9 @@ and  Phosphoribosyl  pyrophosphate  (PRPP)  through  the salvage pathway, (0) no
   
 
 ## Usage
-To run pymCADRE simply execute the notebook named main_pymcadre.ipynb or modify
-one of the test_*.py scripts, after adjusting
-the parameters as wanted and reading the desired input files. Jupyter notebooks with
+To run pymCADRE simply execute the notebook named main_pymcadre.ipynb or or the python script 
+named pymcadre.py. One can also modify one of the test_*.py scripts to adjust
+the parameters as wanted and read the desired input files. Jupyter notebooks with
 test-runs are also provided.
 
 ## Authors
