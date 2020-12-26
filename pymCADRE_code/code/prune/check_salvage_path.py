@@ -3,7 +3,7 @@ __description__ = " Check the salvage pathway. " \
                   " Test the ability of all tissues to synthesize purine nucleotides from purines bases and PRPP, " \
                   " as de novo purine synthesis occurs primarily in the liver and other tissues uses salvage pathway."
 
-# from cobra import *
+from cobra import *
 from check.find_ex_reactions import *
 from check.set_metabolite_bounds import *
 from time import process_time
