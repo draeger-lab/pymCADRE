@@ -67,13 +67,3 @@ def find_inactive_rxns(model, method=1):
     print('Model consists of %s blocked (inactive) reactions' % len(inactive_rxns))
     return inactive_rxns
 
-
-# *************************************************************************************
-# ************** RUNNABLE IN JUPYTER NOTEBOOK ONLY ***********************************
-# model = read_sbml_model('../../RECON1.xml')  # read model from SBML file
-# # # model = io.mat.load_matlab_model('../../humanModel.mat')  # read model for MATLAB file
-# fast_fva = find_inactive_rxns(model)
-# print("fastFVA, Python: " , len(fast_fva))  # fastFVA
-# fast_cc = find_inactive_rxns(model, 2)
-# print("FASTCC, Python: ", len(fast_cc))  # FASTCC
-# *************************************************************************************
