@@ -40,7 +40,6 @@ def check_rxn_flux(model, required_rxns):
         is_member = [1 if react.id in required_rxns else 0 for react in model.reactions]
 
         # get fluxes for these specific reactions
-        # only the order of numbers differs from MATLAB results
         required_flux = [opt_max[idx] for idx in range(len(is_member)) if is_member[idx]]
 
         # absolute values of all fluxes
@@ -82,10 +81,3 @@ def check_rxn_flux(model, required_rxns):
 
     return inactive_required
 
-
-###### call function to test it
-# print("Human model is loading...")
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# print("Metabolites.....")
-# required_rxns = find_required_rxns(model, '../../metabolites_humanModel.txt')[1]
-# check_rxn_flux(model, required_rxns)
