@@ -68,7 +68,3 @@ def parse_gprs(model):
 
     return GPR_rxns, GPR_file
 
-
-### test script
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# print(parse_gprs(model)[1])
