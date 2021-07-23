@@ -40,9 +40,7 @@ def map_gene_scores_to_rxns(model, G, U, GPR_file):
     # indexes of those genes in G
     G_idx = [G.index(int(x)) for x in gene_id]
 
-    # *  faster than the corresponding MATLAB part, with small modifications (gene_GPR doesn't need to be computed) *
-    # U_GPR contains the ubiquity scores for those genes that are found to be as
-    # well in the GPR file as in the gene_idx list
+ 
     for gpr_idx in range(len(GPR_file)):
         for gpr_idx_nested in range(len(GPR_file[gpr_idx])):
             if GPR_file[gpr_idx][gpr_idx_nested] in gene_id:
@@ -58,11 +56,3 @@ def map_gene_scores_to_rxns(model, G, U, GPR_file):
     return U_GPR
 
 
-### test script
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# C_H_genes = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[2]
-# G = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[0]
-# U = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[1]
-# GPR_file = parse_gprs(model)[1]
-# GPR_rxns = parse_gprs(model)[0]
-# print('U_GPR:', map_gene_scores_to_rxns(model, G, U, GPR_file))
