@@ -86,13 +86,10 @@ def check_model_function(model, *args):
     ###########
     # Allow uptake of glucose and CO2, only if they are in the model
     ###########
-    # if model.reactions.get_by_id('EX_glc__D_e') in model.reactions:
-    #     model.reactions.get_by_id('EX_glc__D_e').lower_bound = -5.0
     if 'D-Glucose exchange' in names:  # Reaction id: EX_glc__D_e
         idx = names.index('D-Glucose exchange')
         model.reactions[idx].lower_bound = -5.0
-    # if model.reactions.get_by_id('EX_co2_e') in model.reactions:
-    #     model.reactions.get_by_id('EX_co2_e').lower_bound = -1000.0
+        
     if 'CO2 exchange' in names: # Reaction id: EX_co2_e
         idx = names.index('CO2 exchange')
         model.reactions[idx].lower_bound = -1000.0
@@ -116,9 +113,3 @@ def check_model_function(model, *args):
 
     print('check_model_function done ....')
     return required_met_status, time
-
-###### test script
-# print("Human model is loading...")
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# print("Metabolites.....")
-# print(check_model_function(model, "required_mets", '../../metabolites_humanModel.txt'))
