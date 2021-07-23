@@ -24,8 +24,6 @@ def check_core_dead_ends(model, core_rxns):
         Output:
             - dead_end_core_rxns: list of dead-end core reactions"""
 
-    # create stoichiometric matrix
-    # --> S[i,j] contains the quantity of metabolite i produced (negative for consumed) by reaction j
     s_matrix = util.array.create_stoichiometric_matrix(model)
 
     rev = []  # get reversibility of all reactions
@@ -38,25 +36,24 @@ def check_core_dead_ends(model, core_rxns):
         de_mets = 0
 
         both_rxns = []
-        for i in range(len(s_matrix[met, :])):  # iterate over selected row (based on met) in stoichiometric matrix
-            if s_matrix[met, :][i] != 0 and rev[i]:  # find all non-zero values in current row and those reactions that are reversible
-                both_rxns.append(i)  # store column index, when above criterion is fulfilled
+        for i in range(len(s_matrix[met, :])):  
+            if s_matrix[met, :][i] != 0 and rev[i]:  
+                both_rxns.append(i)  
 
         pos_rxns = [] # produced reactions
-        for i in range(len(s_matrix[met, :])):  # iterate over selected row (based on met) in stoichiometric matrix
+        for i in range(len(s_matrix[met, :])): 
             if s_matrix[met, :][i] > 0:
                 pos_rxns.append(i)
         # union of both lists
         produced_rxns = list(set(pos_rxns) | set(both_rxns))
-        # print("produced",len(produced_rxns))
-
+       
         neg_rxns = [] # consumed reactions
-        for i in range(len(s_matrix[met, :])):  # iterate over selected row (based on met) in stoichiometric matrix
+        for i in range(len(s_matrix[met, :])):  
             if s_matrix[met, :][i] < 0:
                 neg_rxns.append(i)
         # union of both lists
         consumed_rxns = list(set(neg_rxns) | set(both_rxns))
-        # print("consumed",len(consumed_rxns))
+        
 
         # Check for produced-only metabolites
         if len(consumed_rxns) == 0:
@@ -75,9 +72,8 @@ def check_core_dead_ends(model, core_rxns):
         # If any core reaction contains a dead-end metabolite => the reaction itself will be a dead end.
         # This check avoids subsequent optimizations, as the function terminates if any blocked core reactions are detected.
         if de_mets == 1:
-            # store names of found dead-end reactions
+       
             is_de = []
-            # iterate over current matrix row (current metabolite)
             for i in range(len(s_matrix[met, :].astype(np.int64))):
                 if s_matrix[met, :].astype(np.int64)[i] == np.int64(1) or s_matrix[met, :].astype(np.int64)[i] == np.int64(-1):
                     is_de.append(model.reactions[i].id)
@@ -91,14 +87,3 @@ def check_core_dead_ends(model, core_rxns):
 
     return dead_end_core_rxns
 
-
-### test script
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# ### create dummy C list with core reactions
-# np.random.seed(0)
-# perm = np.random.permutation(len(model.reactions))[0:500]  #take only first 500 elements
-# C = []
-# for i in perm:
-#     C.append(model.reactions[i].id)
-# deadends = check_core_dead_ends(model, C)
-# print(len(deadends), deadends)
