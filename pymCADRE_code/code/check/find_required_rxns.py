@@ -57,10 +57,7 @@ def find_required_rxns(model, metabolites):
         r = model.add_boundary(model.metabolites.get_by_id(met),type="demand")  # add_boundary if metabolite is already in the model
         required_rxns.append(r.id)
 
-    # add the rest 3 simple reactions
-    #       - if metabolite is already in the model, will not be added twice,
-    #       - if not then the metabolite will be added in the model
-    #                   * same for reactions! *
+
     react1 = add_single_reaction(model, "DM_accoa_m",  0.0,1000.0, met_dict={Metabolite('accoa_m', compartment='m'): -1, Metabolite('coa_m', compartment='m'): 1})[1]
     required_rxns.append(react1.id)
     react2 = add_single_reaction(model, "DM_succoa_m", 0.0,1000.0, met_dict={Metabolite('succoa_m', compartment='m'): -1, Metabolite('coa_m', compartment='m'): 1})[1]
@@ -71,9 +68,3 @@ def find_required_rxns(model, metabolites):
 
     return model, required_rxns
 
-
-### test script
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# from cobra.io.sbml import *
-# model = read_sbml_model('../../RECON1.xml')
-# print(len(find_required_rxns(model, '../../metabolites_humanModel.txt')[1])) # after addition
