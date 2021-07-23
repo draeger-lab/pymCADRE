@@ -21,10 +21,9 @@ def calc_conn_evidence(model, E_X):
     # Adjacency matrix (i.e., binary reaction connectivity); the connection between
     # a reaction and itself is ignored by subtracting the identity matrix
     S_bin_transpose = np.transpose(S_bin)  # transpose matrix S_bin
-    mult = S_bin_transpose.dot(S_bin)  # multiply both matrices, takes a bit time (!)
+    mult = S_bin_transpose.dot(S_bin)  
     for i in range(len(mult)):
         for j in range(len(mult[i])):
-            # put in matrix 1, if cell contains non-zero element
             if mult[i][j] != 0:
                 mult[i][j] = 1
     # subtract the identity matrix
