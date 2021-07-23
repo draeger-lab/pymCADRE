@@ -45,13 +45,6 @@ def calc_expr_evidence(model, GPR_rxns, U_GPR, is_C_H):
         # if rxns_GPRS not empty
         if len(rxn_GPRS) != 0:
             tmp_lst = [U_GPR_min[k] for k in rxn_GPRS]
-            # replace all NANs with 0.0
-            # why? see https://stackoverflow.com/questions/47788361/why-does-max-sometimes-return-nan-and-sometimes-ignores-it/47788483
-            # otherwise nan will always be the may in the list, which is not what we want --> see step E_X[i] = max(tmp_lst)
-            # for j in range(len(tmp_lst)):
-            #     if tmp_lst[j] is np.nan:
-            #         tmp_lst[j] = 0.0
-            # E_X[i] = max(tmp_lst)
             E_X[i] = np.nanmax(tmp_lst)
 
     # for reactions with no corresponding probe in expression data
@@ -60,15 +53,3 @@ def calc_expr_evidence(model, GPR_rxns, U_GPR, is_C_H):
             E_X[i] = 1.0
 
     return E_X
-
-### test script
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# C_H_genes = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[2]
-# G = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[0]
-# U = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[1]
-# GPR_rxns = parse_gprs(model)[0]
-# GPR_file = parse_gprs(model)[1]
-# is_C_H = map_high_conf_to_rxns(model, GPR_file, GPR_rxns, C_H_genes)
-# U_GPR = map_gene_scores_to_rxns(model, G, U, GPR_file)
-# E_X = calc_expr_evidence(model, GPR_rxns, U_GPR,is_C_H)
-# print(E_X)
