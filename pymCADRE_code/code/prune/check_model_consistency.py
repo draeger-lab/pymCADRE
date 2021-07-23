@@ -80,8 +80,3 @@ def check_model_consistency(model, method=1, rxn_to_remove=[], de_check=0, core_
     print('check_model_consistency done ... ')
 
     return inactive_rxns, exec_time, result
-
-### test script
-# from cobra import *
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# print(len(check_model_consistency(model,1)[0]))
