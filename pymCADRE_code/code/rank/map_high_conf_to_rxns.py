@@ -66,11 +66,3 @@ def map_high_conf_to_rxns(model, GPR_file, GPR_rxns, C_H_genes=[]):
 
     return is_C_H
 
-### test script
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# C_H_genes = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[2]
-# G = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[0]
-# U = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[1]
-# GPR_file = parse_gprs(model)[1]
-# GPR_rxns = parse_gprs(model)[0]
-# print(map_high_conf_to_rxns(model, GPR_file, GPR_rxns, C_H_genes))
