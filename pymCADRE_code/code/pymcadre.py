@@ -12,7 +12,7 @@ from cobra.io.sbml import *
 
 
 # model
-model = io.read_sbml_model('../pre_processing/dataset/RECON1.xml')
+model = io.read_sbml_model('../pre_processing/dataset/recon1_with_BOF_and_VBOF.xml')
 # genes
 G = pd.read_csv('../pre_processing/dataset/1_GPL570_GSE3397/1_GPL570_GSE3397_entrez_ids.csv')
 G = list(G['ENTREZ_GENE_ID'])
@@ -21,7 +21,8 @@ U = pd.read_csv('../pre_processing/dataset/1_GPL570_GSE3397/1_GPL570_GSE3397_ubi
 U = U.rename(columns={0: "Scores"})
 U = list(U['Scores'])
 # confidence scores
-confidence_scores = get_test_inputs('../testInputs.mat','../humanModel.mat')[3]
+confidence_scores = pd.read_csv('../pre_processing/dataset/Recon1_confidence_scores_with_BOF_and_VBOF.csv')
+confidence_scores = np.float64(list(confidence_scores['Confidence Score']))
 # list with precursor metabolites
 precursorMets = '../pre_processing/dataset/key_metabolites_RECON1.txt'
 
