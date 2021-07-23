@@ -51,9 +51,7 @@ def initialize_generic_model(model, C, E_X, confidence_scores, method=1):
 
     # create generic model by removing inactive reactions
     GM = model.copy()
-    GM.remove_reactions(inactive_rxns, remove_orphans=True) # remove_orphans--> to remove corresponding METABOLITES and GENES as well!
-    #                                                                           (in MATLAB only metabolites are removed, but that is not a problem,
-    #                                                                            as genes are not used further in the code )
+    GM.remove_reactions(inactive_rxns, remove_orphans=True) 
 
     # update list of expression-based evidence
     GM_rxns_ids = [rxn.id for rxn in GM.reactions]  # get reaction IDs from GM model
@@ -82,23 +80,3 @@ def initialize_generic_model(model, C, E_X, confidence_scores, method=1):
 
 
 
-### test script
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# C_H_genes = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[2]
-# G = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[0]
-# U = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[1]
-# confidence_scores = get_test_inputs('../../testInputs.mat','../../humanModel.mat')[3]
-# GPR_rxns = parse_gprs(model)[0]
-# GPR_file = parse_gprs(model)[1]
-# is_C_H = map_high_conf_to_rxns(model, GPR_file, GPR_rxns, C_H_genes)
-# U_GPR = map_gene_scores_to_rxns(model, G, U, GPR_file)
-# E_X = calc_expr_evidence(model, GPR_rxns, U_GPR,is_C_H)
-# C = []
-# for i in range(len(E_X)):
-#     if E_X[i] > 0.9:
-#         C.append(model.reactions[i].id)
-# GM, C, E_X, E_L = initialize_generic_model(model,C,E_X,confidence_scores,1)
-# print(len(GM.reactions))
-# print(len(C))
-# print(len(E_X))
-# print(len(E_L))
