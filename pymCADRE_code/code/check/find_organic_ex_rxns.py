@@ -43,16 +43,3 @@ def find_organic_ex_rxns(model, ex_rxns):
     organic_ex_rxns = list(set(all_organic_reactions) & set(ex_rxns))
 
     return organic_ex_rxns
-
-### test script
-# model = read_sbml_model('../../RECON1.xml')
-# ex_rxns = find_ex_rxns(model)
-# print(len(find_organic_ex_rxns(model, ex_rxns)))
-# print(find_organic_ex_rxns(model, ex_rxns))
-
-#  Difference to original MATLAB code when using humanModel.mat:  the following reactions were added into the organic_ex_rxns list,
-#  as they were found to involve organic metabolites as well:
-#   1)  'DM_Asn_X_Ser_Thr_l'
-#   2)  'DM_Ser_Thr_l'
-#   3)  'DM_Ser_Gly_Ala_X_Gly_l'
-#   4)  'EX_peplys_e'
