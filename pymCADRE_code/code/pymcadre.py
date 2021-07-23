@@ -21,8 +21,6 @@ U = pd.read_csv('../pre_processing/dataset/1_GPL570_GSE3397/1_GPL570_GSE3397_ubi
 U = U.rename(columns={0: "Scores"})
 U = list(U['Scores'])
 # confidence scores
-# confidence_scores = pd.read_csv('../pre_processing/dataset/Recon1_confidence_scores.csv')
-# confidence_scores = np.float64(list(confidence_scores['Confidence Score']))
 confidence_scores = get_test_inputs('../testInputs.mat','../humanModel.mat')[3]
 # list with precursor metabolites
 precursorMets = '../pre_processing/dataset/key_metabolites_RECON1.txt'
@@ -30,13 +28,6 @@ precursorMets = '../pre_processing/dataset/key_metabolites_RECON1.txt'
 ##############################################
 # Generate order for reaction removal
 ##############################################
-# Gene ubiquity scores are converted to reaction expression evidence to
-# define the core (C) and non-core (NC) reaction sets. Inactive reactions
-# are identified and removed from the global model to produce the generic
-# model (GM) for subsequent pruning. Non-core reactions are ordered first
-# by expression and then by connectivity evidence to give the list P. Any
-# reactions with zero expression (i.e., associated, but non-expressed
-# genes) are also listed in the vector Z.
 
 print('Processing inputs and ranking reactions...')
 GM, C, NC, P, Z, model_C = rank_reactions(model, G, U, confidence_scores, [], method=1)
