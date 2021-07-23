@@ -20,9 +20,7 @@ def check_salvage_path(model):
 
         Output:
             - salvage_status and time of execution"""
-
-    # Start the stopwatch / counter
-    # returns float value of time in seconds
+    
     t1_start = process_time()
 
     # find exchange reactions in the model
@@ -103,10 +101,3 @@ def check_salvage_path(model):
     time = t1_stop - t1_start
 
     return salvage_status, time
-
-
-### test script
-# from cobra.io.sbml import *
-# model = read_sbml_model('../../RECON1.xml')
-# # model = io.mat.load_matlab_model('../../humanModel.mat')
-# print(check_salvage_path(model))
