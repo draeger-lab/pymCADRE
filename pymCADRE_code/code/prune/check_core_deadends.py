@@ -91,21 +91,3 @@ def check_core_dead_ends(model, core_rxns):
                 break
 
     return dead_end_core_rxns
-
-### test script
-# model = io.mat.load_matlab_model('../../humanModel.mat')
-# ### create dummy C list with core reactions
-# np.random.seed(0)
-# perm = np.random.permutation(len(model.reactions))[0:500]  #take only first 500 elements
-# C = []
-# for i in perm:
-#     C.append(model.reactions[i].id)
-# ### or use the following list to better test it with matlab
-# C=['P4504B1r','SO4HCOtex','A_MANASEly','SPMS','ILETA','AGPRim','ESTRIOLtr','GLU5Km','UAG4Ei','UDPGLCter','CITtbm','UGALGTg',
-# 'THRt4','FRUt4','PROD2m','BILGLCURtr','ARTFR55','SPHMYLNtl','PI3P3Pn','THYMDtl','MESCOALm','ABUTt2r','RTOT_2','TDCHOLAte',
-# 'MI4PP','NTD5m','NRPPHRtu','EX_rbt_e','MEPIVESSte','CYSt4','NABTNO','3HPPD','ENMAN2g','AASAD3m','AGMTm','PPDOy','NACHEX9ly',
-# 'EX_acn13acngalgbside_hs_e','STRDNCCPT2','6DHFtm','EX_xolest2_hs_e','EX_lac__L_e','PCm','PI34P4Pn','DM_ethamp_r','FT',
-# 'FAOXC2252053m','INOSTO','TMNDNCCPT1','NTD1m','ELAIDCRNt','MI1PP','KSII_CORE4t','CSPG_Bt','ANDRSTRNtr','FUCACGALFUCGALACGLCGALGLUSIDEtg',
-# 'TTDCRNt','EX_dmhptcrn_e','GALACGLCGALGBSIDEtg','COAtp','LGNCCOAtx','DIGALSGALSIDEte','GASNASEly','NACHEX6ly','PA_HSter']
-# deadends = check_core_dead_ends(model, C)
-# print(len(deadends), deadends)
