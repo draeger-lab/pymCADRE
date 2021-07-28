@@ -43,7 +43,7 @@ GM, C, NC, P, Z, model_C = rank_reactions(model, G, U, confidence_scores, [], me
 # Define core vs. non-core ratio threshold for removing reactions
 eta = 1 / 3
 # Check functionality of generic model
-genericStatus = check_model_function(deepcopy(GM), 'required_mets', precursorMets)[0]
+genericStatus = check_model_function(deepcopy(GM), 'required_mets', '../test_dataset/key_metabolites_RECON1.txt')[0]
 
 if genericStatus:
     print('Generic model passed precursor metabolites test')
