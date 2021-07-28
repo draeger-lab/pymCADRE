@@ -53,26 +53,13 @@ and  Phosphoribosyl  pyrophosphate  (PRPP)  through  the salvage pathway, (0) no
 + `model_C`: core reactions in the original global model (including blocked reactions)
 + `pruneTime`: total reaction pruning time 
 + `cRes`: result of model checks (consistency/function) during pruning
-    + **1**: Reaction has zero expression evidence.
-    + **-1.x**: Reaction removed along with any inactivated reactions
-      (x: removed core reactions)
-    + **+1.x**: No reactions removed.
-      + x = 1: ratio of inactivated core vs. non-core reactions above a pre-defined threshold
-      + x = 0: production of precursor metabolites not possible 
-    + **2**: Reactions has expression evidence
-    + **-2.x**: Reaction removed along with only non-core inactivated reactions
-      (x: removed core reactions, always zero!)
-    + **+2.x**: No reactions removed.
-      + x= 1: removal led to inactive cores 
-      + x= 0: production of precursor metabolites not possible
-    + **3**: Removal or reaction prevented the production of required metabolites. No reaction removed.
   
 
 ## Usage
 To run pymCADRE simply execute the notebook named main_pymcadre.ipynb or or the python script 
-named pymcadre.py. One can also modify one of the test_*.py scripts to adjust
+named pymcadre.py. You may modify scripts to adjust
 the parameters as wanted and read the desired input files. Jupyter notebooks with
-test-runs are also provided.
+test-runs and test-scripts are also provided.
 
 ## Authors
 **Nantia Leonidou**
