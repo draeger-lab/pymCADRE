@@ -1,4 +1,5 @@
-# pymCADRE
+<img src="pymCADRE_logo.png" alt="drawing" width="400"/>
+
 ## Overview
 
 The **pymCADRE**  constructs context-specific models by leveraging gene  expression  
