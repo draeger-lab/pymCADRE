@@ -1,7 +1,7 @@
 # pymCADRE <img align="right" src="pymCADRE_logo.png" alt="drawing" width="70"/> 
 
 [![License (LGPL version 3)](https://img.shields.io/badge/license-LGPLv3.0-blue.svg?style=plastic)](http://opensource.org/licenses/LGPL-3.0)
-[![Latest version](https://img.shields.io/badge/Latest_version-2.1-brightgreen.svg?style=plastic)](https://github.com/draeger-lab/SBSCL/releases/)
+[![Latest version](https://img.shields.io/badge/Latest_version-0.9-brightgreen.svg?style=plastic)](https://github.com/draeger-lab/pymCADRE/releases/)
 ![Code Size](https://img.shields.io/github/languages/code-size/draeger-lab/pymCADRE.svg?style=plastic)
 ![Downloads of all releases](https://img.shields.io/github/downloads/draeger-lab/pymCADRE/total.svg?style=plastic)
 
@@ -10,19 +10,16 @@
 
 ### Overview
 
-The **pymCADRE**  constructs context-specific models by leveraging gene  expression  
-data and literature-based evidence, along with network topology information. The reactions withing the global generic 
-model are being ranked and the ones with the lowest supporting evidence for the tissue
+The **pymCADRE** tool is an advanced re-implementation of the metabolic Context-specificity Assessed by Deterministic Reaction Evaluation ([mCADRE](https://github.com/jaeddy/mcadre)) algorithm in Python. It constructs tissue-specific metabolic models by leveraging gene expression data and literature-based evidence, along with network topology information.
+
+The reactions within the generic global model are being ranked, and the ones with the lowest supporting evidence for the tissue
 of interest are given the highest priority for removal:
 ```
-GM, C, NC, P, Z, model_C = 
-        rank_reactions(model, G, U, confidence_scores, [], method=1)
+GM, C, NC, P, Z, model_C = rank_reactions(model, G, U, confidence_scores, C_H_genes, method)
 ```
-If the generic functionality test is passed, the model undergoes pruning, which results
-to a context-specific reconstruction:
+If the generic functionality test is passed, the model undergoes pruning, which results in a context-specific reconstruction:
 ```
-PM, cRes = 
-    prune_model(GM, P, C, Z, eta, precursorMets, salvage_check=1, method=1)
+PM, cRes = prune_model(GM, P, C, Z, eta, precursorMets, salvage_check, C_H_genes, method)
 ```
 
 ### Prerequisites
@@ -39,18 +36,18 @@ Packages:
 * os
 
 ### Input data
-+ `model`: generic global metabolic model of the organism of interest
-+ `precursorMets`: list of precursor, key, metabolites
-+ `confidence_scores`: literature/experimental-based confidence assigned to reactions in generic model
-####### Tissue-specific expression evidence
-+ `G`: list of Entrez IDs for all genes 
-+ `U`: list of genes' ubiquity scores
++ `model`: COBRA model structure for the metabolic model of interest
++ `precursorMets`: list of precursor, key, metabolites in form of .txt file
++ `confidence_scores`: literature/experimental-based confidence assigned to reactions in `model`
+
+Tissue-specific expression evidence: 
++ `G`: list of Entrez IDs for all genes in `model`
++ `U`: list of ubiquity scores calculated for all genes in `model`
 
 ##### Optional Inputs
-+ `salvageCheck`: (1) test tissues on  whether  they  synthesize  purines from  purine  bases  
-and  Phosphoribosyl  pyrophosphate  (PRPP)  through  the salvage pathway, (0) no test.
-+ `C_H_genes`: list with Entrez IDs for genes with particularly high evidence of activity in the tissue of interest
-+ `method`: method for internal optimization, (1) fastFVA or (2) fastcc
++ `salvageCheck`: flag whether to perform a functional check for the nucleotide salvage pathway (1) or not (0)
++ `C_H_genes`: list with Entrez IDs for genes with particularly strong evidence of activity in the tissue of interest
++ `method`: method to use internal optimizations, (1) flux variability analysis or (2) fastcc
 
 ### Outputs
 + `PM`: pruned COBRA tissue-specific model
@@ -58,17 +55,13 @@ and  Phosphoribosyl  pyrophosphate  (PRPP)  through  the salvage pathway, (0) no
 + `C`: core reactions in `GM`
 + `NC`: non-core reactions in `GM` 
 + `Z`: reactions with zero expression across all samples after binarization
-+ `model_C`: core reactions in the original global model (including blocked reactions)
++ `model_C`: core reactions in the generic model (including blocked reactions)
 + `pruneTime`: total reaction pruning time 
 + `cRes`: result of model checks (consistency/function) during pruning
   
 
 ### Usage
-To run pymCADRE simply execute the notebook named main_pymcadre.ipynb or or the python script 
-named pymcadre.py. You may modify scripts to adjust
-the parameters as wanted and read the desired input files. Jupyter notebooks with
-test-runs and test-scripts are also provided.
-
+To run pymCADRE, execute the notebook named main_pymcadre.ipynb or the python script named pymcadre.py. The scripts can be modified to the preferred parameters and input files. Jupyter notebooks with test runs and test scripts are also provided as reference points.
 
 
 
