@@ -1,6 +1,14 @@
-<img src="pymCADRE_logo.png" alt="drawing" width="400"/>
+# pymCADRE <img align="right" src="pymCADRE_logo.png" alt="drawing" width="70"/> 
 
-## Overview
+[![License (LGPL version 3)](https://img.shields.io/badge/license-LGPLv3.0-blue.svg?style=plastic)](http://opensource.org/licenses/LGPL-3.0)
+[![Latest version](https://img.shields.io/badge/Latest_version-2.1-brightgreen.svg?style=plastic)](https://github.com/draeger-lab/SBSCL/releases/)
+![Code Size](https://img.shields.io/github/languages/code-size/draeger-lab/pymCADRE.svg?style=plastic)
+![Downloads of all releases](https://img.shields.io/github/downloads/draeger-lab/pymCADRE/total.svg?style=plastic)
+
+*Authors*: [Nantia Leonidou](https://github.com/NantiaL)
+
+
+### Overview
 
 The **pymCADRE**  constructs context-specific models by leveraging gene  expression  
 data and literature-based evidence, along with network topology information. The reactions withing the global generic 
@@ -17,7 +25,7 @@ PM, cRes =
     prune_model(GM, P, C, Z, eta, precursorMets, salvage_check=1, method=1)
 ```
 
-## Prerequisites
+### Prerequisites
 
 This tool has the following dependencies:
 
@@ -30,21 +38,21 @@ Packages:
 * requests
 * os
 
-## Input data
+### Input data
 + `model`: generic global metabolic model of the organism of interest
 + `precursorMets`: list of precursor, key, metabolites
 + `confidence_scores`: literature/experimental-based confidence assigned to reactions in generic model
-###### Tissue-specific expression evidence
+####### Tissue-specific expression evidence
 + `G`: list of Entrez IDs for all genes 
 + `U`: list of genes' ubiquity scores
 
-#### Optional Inputs
+##### Optional Inputs
 + `salvageCheck`: (1) test tissues on  whether  they  synthesize  purines from  purine  bases  
 and  Phosphoribosyl  pyrophosphate  (PRPP)  through  the salvage pathway, (0) no test.
 + `C_H_genes`: list with Entrez IDs for genes with particularly high evidence of activity in the tissue of interest
 + `method`: method for internal optimization, (1) fastFVA or (2) fastcc
 
-## Outputs
+### Outputs
 + `PM`: pruned COBRA tissue-specific model
 + `GM`: COBRA model after removing blocked reactions from the input global model
 + `C`: core reactions in `GM`
@@ -55,13 +63,12 @@ and  Phosphoribosyl  pyrophosphate  (PRPP)  through  the salvage pathway, (0) no
 + `cRes`: result of model checks (consistency/function) during pruning
   
 
-## Usage
+### Usage
 To run pymCADRE simply execute the notebook named main_pymcadre.ipynb or or the python script 
 named pymcadre.py. You may modify scripts to adjust
 the parameters as wanted and read the desired input files. Jupyter notebooks with
 test-runs and test-scripts are also provided.
 
-## Authors
-**Nantia Leonidou**
+
 
 
