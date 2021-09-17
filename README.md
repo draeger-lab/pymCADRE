@@ -1,14 +1,15 @@
-# pymCADRE <img align="right" src="pymCADRE_logo.png" alt="drawing" width="70"/> 
+# pymCADRE 
 
 [![License (LGPL version 3)](https://img.shields.io/badge/license-LGPLv3.0-blue.svg?style=plastic)](http://opensource.org/licenses/LGPL-3.0)
 [![Latest version](https://img.shields.io/badge/Latest_version-0.9-brightgreen.svg?style=plastic)](https://github.com/draeger-lab/pymCADRE/releases/)
 ![Code Size](https://img.shields.io/github/languages/code-size/draeger-lab/pymCADRE.svg?style=plastic)
 ![Downloads of all releases](https://img.shields.io/github/downloads/draeger-lab/pymCADRE/total.svg?style=plastic)
 
-*Authors*: [Nantia Leonidou](https://github.com/NantiaL)
+<img align="right" src="pymCADRE_logo.png" alt="drawing" width="170"/> 
+*Authors*: [Nantia Leonidou](https://github.com/NantiaL). 
 
 
-### Overview
+### Overview. 
 
 The **pymCADRE** tool is an advanced re-implementation of the metabolic Context-specificity Assessed by Deterministic Reaction Evaluation ([mCADRE](https://github.com/jaeddy/mcadre)) algorithm in Python. It constructs tissue-specific metabolic models by leveraging gene expression data and literature-based evidence, along with network topology information.
 
