@@ -1,5 +1,5 @@
 __author__ = "Nantia Leonidou"
-__description__ = " Run pymCADRE "
+__description__ = " pymCADRE main"
 
 from time import process_time
 from rank.rank_reactions import *
@@ -13,26 +13,19 @@ from cobra.io.sbml import *
 # read model
 model = io.read_sbml_model('../test_dataset/recon1_with_BOF_and_VBOF.xml')
 # genes
-G = pd.read_csv('../test_dataset/1_GPL570_GSE3397/1_GPL570_GSE3397_entrez_ids.csv')
+G = pd.read_csv('../test_dataset/1_GPL570_GSE3397_entrez_ids.csv')
 G = list(G['ENTREZ_GENE_ID'])
 # ubiquity scores
-U = pd.read_csv('../test_dataset/1_GPL570_GSE3397/1_GPL570_GSE3397_ubiquity.csv', header=None)
+U = pd.read_csv('../test_dataset/1_GPL570_GSE3397_ubiquity.csv', header=None)
 U = U.rename(columns={0: "Scores"})
 U = list(U['Scores'])
 #confidence_scores
-confidence_scores = pd.read_csv('../pre_processing/dataset/Recon1_confidence_scores_with_BOF_and_VBOF.csv')
+confidence_scores = pd.read_csv('../test_dataset/Recon1_confidence_scores_with_BOF_and_VBOF.csv')
 confidence_scores = np.float64(list(confidence_scores['Confidence Score']))
 
 ##############################################
-# Generate order for reaction removal
+# Rank reactions
 ##############################################
-# Gene ubiquity scores are converted to reaction expression evidence to
-# define the core (C) and non-core (NC) reaction sets. Inactive reactions
-# are identified and removed from the global model to produce the generic
-# model (GM) for subsequent pruning. Non-core reactions are ordered first
-# by expression and then by connectivity evidence to give the list P. Any
-# reactions with zero expression (i.e., associated, but non-expressed
-# genes) are also listed in the vector Z.
 
 print('Processing inputs and ranking reactions...')
 GM, C, NC, P, Z, model_C = rank_reactions(model, G, U, confidence_scores, [], method=1)
