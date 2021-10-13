@@ -1,0 +1,25 @@
+{
+  "upload_type": "software",
+  "title": "pymCADRE: Tissue-specific model reconstruction",
+  "creators": [
+    {
+      "orcid": "0000-0002-0248-6679",
+      "affiliation": "Eberhard Karls University of Tübingen, Institute for Bioinformatics and Medical Informatics, Tübingen",
+      "name": "Leonidou, Nantia"
+    }
+  ],
+  "description": "<p><code>pymCADRE</code> is an advanced re-implementation of the metabolic Context-specificity Assessed by Deterministic Reaction Evaluation (mCADRE) algorithm in Python. It constructs tissue-specific metabolic models by leveraging gene expression data and literature-based evidence, along with network topology information.",
+  "access_right": "open",
+  "license": "LGPL-3.0",
+  "keywords": [
+    "python",
+    "constraint-based modeling",
+    "genome-scale modeling",
+    "tissue-specific reconstructions",
+    "flux balance analysis",
+    "sbml model" 
+  ],
+  "contributors": [],
+  "communities": [],
+  "grants": []
+}
