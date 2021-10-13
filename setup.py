@@ -13,7 +13,7 @@ setup(
     author='Nantia Leonidou',
     author_email='nantia.leonidou@uni-tuebingen.de',
     license=' GPL-3.0',
-    packages=find_packages(where="code"),
+    packages=find_packages(where="pymCADRE_code"),
     install_requires=['pandas',
                       'numpy',
                       'cobrapy',
