@@ -6,7 +6,8 @@
 ![Downloads of all releases](https://img.shields.io/github/downloads/draeger-lab/pymCADRE/total.svg?style=plastic)
 
 <img align="right" src="pymCADRE_logo.png" alt="drawing" width="170"/> 
-*Authors*: [Nantia Leonidou] (https://github.com/NantiaL). 
+
+*Authors* : [Nantia Leonidou](https://github.com/NantiaL)
 
 
 ### Overview. 
