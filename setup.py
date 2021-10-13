@@ -17,7 +17,7 @@ setup(
     install_requires=['pandas',
                       'numpy',
                       'cobrapy',
-                      'requests'
+                      'requests',
                       'os'
                       ],
 
