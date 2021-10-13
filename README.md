@@ -25,6 +25,11 @@ If the generic functionality test is passed, the model undergoes pruning, which 
 PM, cRes = prune_model(GM, P, C, Z, eta, precursorMets, salvage_check, C_H_genes, method)
 ```
 
+### Installation
+```
+pip install pymcadre
+```
+
 ### Prerequisites
 
 This tool has the following dependencies:
@@ -65,6 +70,8 @@ Tissue-specific expression evidence:
 
 ### Usage
 To run pymCADRE, execute the notebook named main_pymcadre.ipynb or the python script named pymcadre.py. The scripts can be modified to the preferred parameters and input files. Jupyter notebooks with test runs and test scripts are also provided as reference points.
+
+
 
 
 
