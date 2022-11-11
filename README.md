@@ -72,6 +72,17 @@ Tissue-specific expression evidence:
 To run pymCADRE, execute the notebook named main_pymcadre.ipynb or the python script named pymcadre.py. The scripts can be modified to the preferred parameters and input files. Jupyter notebooks with test runs and test scripts are also provided as reference points.
 
 
+### Additional material
+#### PREDICATE (<ins>**Predic**</ins>tion of <ins>**A**</ins>ntiviral <ins>**T**</ins>arg<ins>**e**</ins>ts): 
+<img align="center" src="PREDICATE_overview.png" width="570"/>
 
+Steps: 
+- introduction of mutations in the reference sequence based on the protein sequences 
+- calculation of the necessary stoichiometric coefficients for the final virus biomass functions
+- target detection using two approaches: reaction knock-outs and the host-derived enforcement
+- visualizations that could give insights into the dataset and a better understanding of the results. 
 
+The tool can be applied to either one or more nucleotide sequences and all existing RNA viruses. This makes it particularly advantageous and time-saving when studying multiple variants of a single virus. The number of genomic input sequences equals the number of the calculated VBOF.
+
+To run the tool, set the constant variables to the file pathways where the desired files are stored.
 
