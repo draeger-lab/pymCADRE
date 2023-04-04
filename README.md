@@ -10,6 +10,12 @@
 
 *Authors* : [Nantia Leonidou](https://github.com/NantiaL)
 
+### Publication
+
+When using pymCADRE in a research work, please cite the following work:
+
+Leonidou, N., Renz, A., Mostolizadeh, R., & Dräger, A. (2023). New workflow predicts drug targets against SARS-CoV-2 via metabolic changes in infected cells. PLOS Computational Biology, 19(3), e1010903.
+[![DOI](https://img.shields.io/badge/DOI-10.1093%2Fbioinformatics%2Fbtab669-blue.svg?style=plastic)](https://doi.org/10.1371/journal.pcbi.1010903)
 
 ### Overview. 
 
