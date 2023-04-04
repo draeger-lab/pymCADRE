@@ -4,7 +4,6 @@
 [![Latest version](https://img.shields.io/badge/Latest_version-0.9-brightgreen.svg?style=plastic)](https://github.com/draeger-lab/pymCADRE/releases/)
 ![Code Size](https://img.shields.io/github/languages/code-size/draeger-lab/pymCADRE.svg?style=plastic)
 ![Downloads of all releases](https://img.shields.io/github/downloads/draeger-lab/pymCADRE/total.svg?style=plastic)
-[![DOI](https://zenodo.org/badge/323376678.svg)](https://zenodo.org/badge/latestdoi/323376678)
 
 <img align="right" src="pymCADRE_logo.png" alt="drawing" width="170"/> 
 
