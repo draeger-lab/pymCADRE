@@ -18,15 +18,5 @@ setup(
                       'numpy',
                       'cobrapy',
                       'requests',
-                      'os'
-                      ],
-
-    classifiers=[
-        "Programming Language :: Python :: 3.8",
-        "Topic :: Software Development :: Version Control :: Git",
-        "Framework :: Jupyter",
-        "Operating System :: MacOS",
-        "Operating System :: Unix"
-   
-    ],
+                      'os']
 )
