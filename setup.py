@@ -16,7 +16,6 @@ setup(
     keywords=['pymCADRE', 'systems biology', 'tissue-specific metabolic models'],
     install_requires=['pandas',
                       'numpy',
-                      'cobrapy',
-                      'requests',
-                      'os']
+                      'cobra',
+                      'requests']
 )
