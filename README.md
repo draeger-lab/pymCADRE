@@ -39,7 +39,7 @@ pip install pymcadre
 
 This tool has the following dependencies:
 
-python
+python >=3.8.5
 
 Packages:
 * pandas
