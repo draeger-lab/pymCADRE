@@ -35,6 +35,15 @@ PM, cRes = prune_model(GM, P, C, Z, eta, precursorMets, salvage_check, C_H_genes
 pip install pymcadre
 ```
 
+### Import module and sub-modules
+```
+import pymCADRE
+```
+```
+# sub-module example
+from pymCADRE.rank import *
+```
+
 ### Prerequisites
 
 This tool has the following dependencies:
